@@ -18,36 +18,41 @@ class Main {
         Console cnsl = System.console();
 
         while(true) {
-            System.out.println("Welcome to User Registration please Enter Command");
-            System.out.println("Please Enter [List, Add, Remove, Get]");
-            System.out.print("%> ");
-            String in = cnsl.readLine();
-            if( "List".equals(in) ) {
-                System.out.println(r.listRegistrations());
-            } else if( "Add".equals(in) ) {
-                System.out.print("First Name %> ");
-                String name = cnsl.readLine();
-                System.out.print("Last Name %> ");
-                String lastName = cnsl.readLine();
-                System.out.print("Date Of Birth (MM/DD/YYYY) %> ");
-                String dob = cnsl.readLine();
-                try {
-                    r.addRegistration(new Registration(name, lastName, stringToDate(dob)));
-                } catch (ParseException e) {
-                    System.err.print("stringToDate: Parse Exception");
+            if (cnsl != null) {
+                System.out.println("Welcome to User Registration please Enter Command");
+                System.out.println("Please Enter [List, Add, Remove, Get]");
+                System.out.print("%> ");
+                String in = cnsl.readLine();
+                if ("List".equals(in)) {
+                    System.out.println(r.listRegistrations());
+                } else if ("Add".equals(in)) {
+                    System.out.print("First Name %> ");
+                    String name = cnsl.readLine();
+                    System.out.print("Last Name %> ");
+                    String lastName = cnsl.readLine();
+                    System.out.print("Date Of Birth (MM/DD/YYYY) %> ");
+                    String dob = cnsl.readLine();
+                    try {
+                        r.addRegistration(new Registration(name, lastName, stringToDate(dob)));
+                    } catch (ParseException e) {
+                        System.err.print("stringToDate: Parse Exception");
+                    }
+                } else if ("Remove".equals(in)) {
+                    System.out.print("UUID %> ");
+                    String uuid = System.console().readLine();
+                    r.removeRegistration(UUID.fromString(uuid));
+                } else if ("Get".equals(in)) {
+                    System.out.print("UUID %> ");
+                    String uuid = System.console().readLine();
+                    r.getRegistration(UUID.fromString(uuid));
+                } else {
+                    System.out.println("Command Not Found");
                 }
-            } else if( "Remove".equals(in) ) {
-                System.out.print("UUID %> ");
-                String uuid = System.console().readLine();
-                r.removeRegistration(UUID.fromString(uuid));
-            } else if( "Get".equals(in) ) {
-                System.out.print("UUID %> ");
-                String uuid = System.console().readLine();
-                r.getRegistration(UUID.fromString(uuid));
+                System.out.flush();
             } else {
-                System.out.println("Command Not Found");
+                System.out.println("Console is null");
+                break;
             }
-            System.out.flush();
 
         }
     }
