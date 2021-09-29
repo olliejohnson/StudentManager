@@ -31,4 +31,8 @@ public class Registration {
         return this.dateOfBirth;
     }
 
+    public String toString() {
+        return String.format("%s:%s:%s",uuid,firstName,lastName);
+    }
+
 }
