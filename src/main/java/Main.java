@@ -22,9 +22,9 @@ class Main {
             System.out.println("Please Enter [List, Add, Remove, Get]");
             System.out.print("%> ");
             String in = cnsl.readLine();
-            if(in == "List") {
+            if( "List".equals(in) ) {
                 System.out.println(r.listRegistrations());
-            } else if(in == "Add") {
+            } else if( "Add".equals(in) ) {
                 System.out.print("First Name %> ");
                 String name = cnsl.readLine();
                 System.out.print("Last Name %> ");
@@ -36,11 +36,11 @@ class Main {
                 } catch (ParseException e) {
                     System.err.print("stringToDate: Parse Exception");
                 }
-            } else if(in == "Remove") {
+            } else if( "Remove".equals(in) ) {
                 System.out.print("UUID %> ");
                 String uuid = System.console().readLine();
                 r.removeRegistration(UUID.fromString(uuid));
-            } else if(in == "Get") {
+            } else if( "Get".equals(in) ) {
                 System.out.print("UUID %> ");
                 String uuid = System.console().readLine();
                 r.getRegistration(UUID.fromString(uuid));
