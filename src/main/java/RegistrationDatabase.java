@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class RegistrationDatabase {
 
@@ -19,4 +20,5 @@ public class RegistrationDatabase {
     public Collection<Registration> listRegistrations() {
         return this.registrations.values();
     }
+
 }

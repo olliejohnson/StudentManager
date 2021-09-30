@@ -37,12 +37,12 @@ class Main {
                 } else if ("Remove".equals(in)) {
                     System.out.print("UUID %> ");
                     String uuid = System.console().readLine();
-                    System.out.println(r.getRegistration(UUID.fromString(uuid)));
+                    System.out.println("Removed: " + r.getRegistration(UUID.fromString(uuid)));
                     r.removeRegistration(UUID.fromString(uuid));
                 } else if ("Get".equals(in)) {
                     System.out.print("UUID %> ");
                     String uuid = System.console().readLine();
-                    System.out.println(r.getRegistration(UUID.fromString(uuid)));
+                    System.out.println("Got: " + r.getRegistration(UUID.fromString(uuid)));
                 } else {
                     System.out.println("Command Not Found");
                 }
