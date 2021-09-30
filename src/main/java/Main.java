@@ -15,23 +15,21 @@ class Main {
 
         RegistrationDatabase r = new RegistrationDatabase();
 
-        Console cnsl = System.console();
-
         while(true) {
-            if (cnsl != null) {
+            if (System.console() != null) {
                 System.out.println("Welcome to User Registration please Enter Command");
                 System.out.println("Please Enter [List, Add, Remove, Get]");
                 System.out.print("%> ");
-                String in = cnsl.readLine();
+                String in = System.console().readLine();
                 if ("List".equals(in)) {
                     System.out.println(r.listRegistrations());
                 } else if ("Add".equals(in)) {
                     System.out.print("First Name %> ");
-                    String name = cnsl.readLine();
+                    String name = System.console().readLine();
                     System.out.print("Last Name %> ");
-                    String lastName = cnsl.readLine();
+                    String lastName = System.console().readLine();
                     System.out.print("Date Of Birth (MM/DD/YYYY) %> ");
-                    String dob = cnsl.readLine();
+                    String dob = System.console().readLine();
                     try {
                         r.addRegistration(new Registration(name, lastName, stringToDate(dob)));
                     } catch (ParseException e) {
@@ -40,11 +38,12 @@ class Main {
                 } else if ("Remove".equals(in)) {
                     System.out.print("UUID %> ");
                     String uuid = System.console().readLine();
+                    System.out.println(r.getRegistration(UUID.fromString(uuid)));
                     r.removeRegistration(UUID.fromString(uuid));
                 } else if ("Get".equals(in)) {
                     System.out.print("UUID %> ");
                     String uuid = System.console().readLine();
-                    r.getRegistration(UUID.fromString(uuid));
+                    System.out.println(r.getRegistration(UUID.fromString(uuid)));
                 } else {
                     System.out.println("Command Not Found");
                 }
