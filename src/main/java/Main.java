@@ -7,8 +7,7 @@ import java.util.UUID;
 
 class Main {
     public static Date stringToDate(String date) throws ParseException {
-        Date date1 = new SimpleDateFormat("MM/dd/yyyy").parse(date);
-        return date1;
+        return new SimpleDateFormat("MM/dd/yyyy").parse(date);
     }
 
     public static void main(String[] args) {
