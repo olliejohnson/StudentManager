@@ -81,6 +81,15 @@ public class RegistrationDatabase {
         return registrations.get(uuid);
     }
 
+    /**
+     * You use this function to remove a {@link Registration}.
+     * You input that users {@link UUID} this will delete that user
+     *
+     * @see UUID
+     * @see Registration
+     *
+     * @author olliejohnson
+     */
     public void removeRegistration(UUID uuid) {
         registrations.remove(uuid);
     }
