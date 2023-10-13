@@ -6,20 +6,29 @@ import java.util.Date;
 import java.util.UUID;
 
 class Main {
+
+    //Converts a string in to a date based on the MM/DD/YYYY format
     public static Date stringToDate(String date) throws ParseException {
         return new SimpleDateFormat("MM/dd/yyyy").parse(date);
     }
 
     public static void main(String[] args) {
 
+        // Create and Instance of Registration Database called r
         RegistrationDatabase r = new RegistrationDatabase();
 
         while(true) {
+            //Is Console Not Null
             if (System.console() != null) {
+                //Prints What You Need To Do
                 System.out.println("Welcome to User Registration please Enter Command");
                 System.out.println("Please Enter [List, Add, Remove, Get]");
                 System.out.print("%> ");
+
+                //Capture Input
                 String in = System.console().readLine();
+
+                //Check Input
                 if ("List".equals(in)) {
                     System.out.println(r.listRegistrations());
                 } else if ("Add".equals(in)) {

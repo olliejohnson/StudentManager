@@ -9,6 +9,13 @@ public class RegistrationDatabase {
     private Connection conn = null;
     private Map<UUID, Registration> registrations = new HashMap<UUID, Registration>();
 
+    /**
+     * This class is used to manage the database.
+     * You can use {@code RegistrationDatabase.addRegistration(Registration r)}
+     * to add a Registration to the database
+     * @see Registration
+     * @author olliejohnson
+    **/
     public RegistrationDatabase() {
         try {
             Class.forName("org.sqlite.JDBC");
@@ -32,6 +39,10 @@ public class RegistrationDatabase {
         }
     }
 
+    /**
+     * This is a method that you will never need to use.
+     * @author olliejohnson
+     **/
     public void setupDatabase() {
         String sql = "CREATE TABLE IF NOT EXISTS registrations (\n"
                 + "uuid VARCHAR(50) PRIMARY KEY,\n"
@@ -47,10 +58,25 @@ public class RegistrationDatabase {
         }
     }
 
+    /**
+     * This method is used to add a {@link Registration} to the database.
+     *
+     * @see Registration
+     * @author olliejohnson
+     */
     public void addRegistration(Registration r) {
         registrations.put(r.getUUID(), r);
     }
 
+    /**
+     * You use this function to get a {@link Registration}.
+     * You input that users {@link UUID} and it returns a {@link Registration}
+     *
+     * @see UUID
+     * @see Registration
+     *
+     * @author olliejohnson
+     */
     public Registration getRegistration(UUID uuid) {
         return registrations.get(uuid);
     }

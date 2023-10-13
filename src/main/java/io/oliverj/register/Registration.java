@@ -10,6 +10,17 @@ public class Registration {
     private Date dateOfBirth;
     private UUID uuid;
 
+
+    /**
+     * This class allows you to create a registration object.
+     * To Use it you create an instance of the registration class.
+     * To use you {@link RegistrationDatabase}
+     * to add registration to the database
+     * @see RegistrationDatabase
+     *
+     * @author olliejohnson
+     * @version 1.1
+     */
     public Registration(String firstName, String lastName, Date dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
