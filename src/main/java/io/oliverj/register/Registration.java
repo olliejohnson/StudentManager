@@ -1,3 +1,5 @@
+package io.oliverj.register;
+
 import java.util.Date;
 import java.util.UUID;
 

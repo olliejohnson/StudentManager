@@ -1,6 +1,7 @@
+package io.oliverj.register;
+
 import java.sql.*;
 import java.util.*;
-import java.util.stream.Collectors;
 import java.sql.Connection;
 
 public class RegistrationDatabase {
@@ -11,16 +12,14 @@ public class RegistrationDatabase {
     public RegistrationDatabase() {
         try {
             Class.forName("org.sqlite.JDBC");
-            String url = "jdbc:sqlite:C:\\Users\\olive\\source\\repos\\INTELLIJ\\Student Manager\\databases\\Registrations.db";
+            String url = "jdbc:sqlite:/sqlite/db/registrations.db";
 
             this.conn = DriverManager.getConnection(url);
             this.setupDatabase();
 
             System.out.println("Connection to SQLite has been established");
 
-        } catch(SQLException e) {
-            e.printStackTrace();
-        } catch(ClassNotFoundException e) {
+        } catch(SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
             try {

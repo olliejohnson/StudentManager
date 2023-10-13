@@ -1,5 +1,5 @@
-import java.io.*;
-import java.text.DateFormat;
+package io.oliverj.register;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
